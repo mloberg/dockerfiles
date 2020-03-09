@@ -1,0 +1,16 @@
+version: '3.7'
+services: 
+  golang1.13:
+    build: 
+      context: golang
+      args: 
+        GO_VERSION: '1.13'
+    image:
+      mlo/golang:1.13
+  golang1.14:
+    build: 
+      context: golang
+      args: 
+        GO_VERSION: '1.14'
+    image:
+      mlo/golang:1.14
