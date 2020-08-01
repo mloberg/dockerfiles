@@ -5,8 +5,12 @@ help:
 .PHONY: help
 
 build: ## Build all Dockerfiles
-build: golang1.13 golang1.14
+build: aws-sam golang1.13 golang1.14
 .PHONY: build
+
+aws-sam: ## AWS SAM CLI
+	docker build -t $(PREFIX)/aws-sam aws-sam-cli
+.PHONY: aws-sam
 
 golang1.13: ## Go 1.13 (with Make and mockery)
 	docker build -t $(PREFIX)/golang:1.13 --build-arg GO_VERSION=1.13 golang
