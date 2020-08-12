@@ -5,7 +5,7 @@ help:
 .PHONY: help
 
 build: ## Build all Dockerfiles
-build: aws-sam golang1.13 golang1.14 php7.2 php7.3 php7.4
+build: aws-sam golang1.13 golang1.14 golang1.15 php7.2 php7.3 php7.4
 .PHONY: build
 
 aws-sam: ## AWS SAM CLI
@@ -19,6 +19,10 @@ golang1.13: ## Go 1.13
 golang1.14: ## Go 1.14
 	docker build -t $(PREFIX)/golang:1.14 --build-arg GO_VERSION=1.14 golang
 .PHONY: golang1.14
+
+golang1.15: ## Go 1.15
+	docker build -t $(PREFIX)/golang:1.15 --build-arg GO_VERSION=1.15 golang
+.PHONY: golang1.15
 
 php7.2: ## PHP 7.2
 	docker build -t $(PREFIX)/php:7.2 --build-arg PHP_VERSION=7.2 php
